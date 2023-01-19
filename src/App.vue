@@ -1,30 +1,70 @@
 <template>
-  <nav>
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </nav>
-  <router-view/>
+  
+  <div class="container">
+    <p>{{ now.getHours() }}:{{  ('0'+now.getMinutes()).slice(-2) }}</p>
+
+    <router-view/>
+    
+    <nav>
+      <router-link to="/">Journal</router-link> |
+      <router-link to="/contact">Contact</router-link> | 
+      <router-link to="/appels">Appels</router-link>
+    </nav>
+  </div>
 </template>
 
+<script>
+export default {
+  name: 'App',
+  data(){
+    return{
+      now: new Date()
+    }
+  },
+}
+</script>
 <style>
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+  background-color: #393E46;
+  color: white;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
-nav {
-  padding: 30px;
+a{
+  text-decoration: none;
+  color: white;
 }
 
-nav a {
-  font-weight: bold;
-  color: #2c3e50;
+.container{
+  width: 350px;
+  max-width: 350px;
+  border: 2px solid white;
+  height: 600px;
+  border-radius: 30px;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  position: relative;
 }
 
-nav a.router-link-exact-active {
-  color: #42b983;
+.container nav{
+  position: absolute;
+  bottom: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
 }
 </style>
