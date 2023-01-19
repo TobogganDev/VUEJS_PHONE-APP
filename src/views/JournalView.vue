@@ -4,6 +4,19 @@
       <h2>Récents</h2>
     </div>
     <CallJournal/>
+    <CallJournal/>
+    <CallJournal/>
+    <CallJournal/>
+    <CallJournal/>
+    <CallJournal/>
+    <CallJournal/>
+    <CallJournal/>
+    <CallJournal/>
+    <CallJournal/>
+    <CallJournal/>
+    <CallJournal/>
+    <CallJournal/>
+    <CallJournal/>
   </div>
 </template>
 
@@ -18,6 +31,9 @@ export default {
 </script>
 
 <style scoped>
+  div{
+    overflow: auto;
+  }
   .top{
     border-bottom: 1px solid gray;
     padding-top: 15px;

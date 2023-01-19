@@ -6,9 +6,9 @@
     <router-view/>
     
     <nav>
-      <router-link to="/">Journal</router-link> |
-      <router-link to="/contact">Contact</router-link> | 
-      <router-link to="/appels">Appels</router-link>
+      <router-link to="/"><i class="fa-regular fa-clock"></i></router-link> |
+      <router-link to="/contact"><i class="fa-regular fa-circle-user"></i></router-link> | 
+      <router-link to="/appels"><i class="fa-solid fa-hashtag"></i></router-link>
     </nav>
   </div>
 </template>
@@ -44,6 +44,10 @@ export default {
   flex-direction: column;
 }
 
+::-webkit-scrollbar {
+  width: 0px !important;
+}
+
 a{
   text-decoration: none;
   color: white;
@@ -66,5 +70,13 @@ a{
   bottom: 1rem;
   left: 50%;
   transform: translateX(-50%);
+  width: 100%;
+  background: #393E46;
+  text-align: center;
+  border-radius: 50px;
+}
+
+.container p{
+  text-align: center;
 }
 </style>

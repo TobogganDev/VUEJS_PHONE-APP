@@ -24,6 +24,7 @@ span{
   opacity: 0.3;
 }
 i{
+  font-size: 1.3rem;
   color: #03C988;
 }
 </style>
