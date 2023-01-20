@@ -2,14 +2,19 @@
   <div class="c-all">
     <div>
       <h3>Thomas</h3>
-      <span>portable</span>
+      <span>{{ now.getDate() }}/{{ ('0'+now.getMonth()+1).slice(-2) }}/{{ now.getFullYear() }} - {{ now.getHours() }}:{{  ('0'+now.getMinutes()).slice(-2) }}</span>
     </div>
     <i class="fa-solid fa-phone"></i>
   </div>
 </template>
 <script>
 export default {
-  name: 'CallJournal'
+  name: 'CallJournal',
+  data(){
+    return{
+      now: new Date()
+    }
+  },
 }
 </script>
 <style scoped>
