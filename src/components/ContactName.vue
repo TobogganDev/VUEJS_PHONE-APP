@@ -1,19 +1,28 @@
 <template>
   <div>
-    <h3>Thomas</h3>
-    <span>06 14 84 14 34</span>
-    <i class="fa-solid fa-phone"></i>
+    <h3>{{ perso.name }}</h3>
+    <span>{{ perso.phone }}</span>
+    <i class="fa-solid fa-phone" @click="missedCalls"></i>
   </div>
 </template>
 <script>
 export default {
   name: 'ContactName',
+  props: [
+    'perso'
+  ],
+  methods: {
+    missedCalls(){
+      this.$store.commit('missedCalls',this.perso)
+    }
+  }
 }
 </script>
 <style scoped>
 div{
   display: flex;
   justify-content: space-between;
+  align-items: center;
   padding: 10px;
   border-bottom: 1px solid gray;
 }

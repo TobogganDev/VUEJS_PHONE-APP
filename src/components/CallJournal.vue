@@ -1,10 +1,10 @@
 <template>
   <div class="c-all">
     <div>
-      <h3>Thomas</h3>
+      <h3>{{ call.name }}</h3>
       <span>{{ now.getDate() }}/{{ ('0'+now.getMonth()+1).slice(-2) }}/{{ now.getFullYear() }} - {{ now.getHours() }}:{{  ('0'+now.getMinutes()).slice(-2) }}</span>
     </div>
-    <i class="fa-solid fa-phone"></i>
+    <i class="fa-solid fa-phone" @click="missedCalls"></i>
   </div>
 </template>
 <script>
@@ -15,6 +15,14 @@ export default {
       now: new Date()
     }
   },
+  props: [
+    'call'
+  ],
+  methods: {
+    missedCalls(){
+      this.$store.commit('missedCalls',this.call)
+    }
+  }
 }
 </script>
 <style scoped>

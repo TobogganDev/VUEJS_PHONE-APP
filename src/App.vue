@@ -1,7 +1,7 @@
 <template>
   
   <div class="container">
-    <p>{{ now.getHours() }}:{{  ('0'+now.getMinutes()).slice(-2) }}</p>
+    <p>{{ date.getHours() }}:{{  ('0'+date.getMinutes()).slice(-2) }}</p>
 
     <router-view/>
     
@@ -16,11 +16,11 @@
 <script>
 export default {
   name: 'App',
-  data(){
-    return{
-      now: new Date()
+  computed: {
+    date(){
+      return this.$store.state.date
     }
-  },
+  }
 }
 </script>
 <style>

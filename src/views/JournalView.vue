@@ -3,20 +3,9 @@
     <div class="top">
       <h2>Récents</h2>
     </div>
-    <CallJournal/>
-    <CallJournal/>
-    <CallJournal/>
-    <CallJournal/>
-    <CallJournal/>
-    <CallJournal/>
-    <CallJournal/>
-    <CallJournal/>
-    <CallJournal/>
-    <CallJournal/>
-    <CallJournal/>
-    <CallJournal/>
-    <CallJournal/>
-    <CallJournal/>
+    <div v-for="call in calls" :key="call.name">
+      <CallJournal :call="call"/>
+    </div>
   </div>
 </template>
 
@@ -26,6 +15,11 @@ export default {
   name: 'JournalView',
   components: {
     CallJournal
+  },
+  computed : {
+    calls(){
+      return this.$store.state.calls
+    }
   }
 }
 </script>
