@@ -1,9 +1,9 @@
 <template>
   <div>
-    <form action="" name="phoneNumber">
-      <input type="tel" name="tel" id="tel" >
-      <span></span>
-    </form>
+    <div class="top-call">
+      <input type="text" v-model="newCaller.name" >
+      <span v-if="findContact">{{ findContact.name }}</span>
+    </div>
     
     <table>
       <tr>
@@ -40,19 +40,62 @@
         <td><button class="button" type="button" value="3" @click="insert(9)">9</button>
         </td>
       </tr>
+      <tr>
+        <td>
+          <form action="" @submit.prevent="newCall">
+        
+        <button type="submit" id="call">
+          <i class="fa-solid fa-phone"></i>
+        </button>
+        
+      </form>
+        </td>
+        <td><button class="button" type="button" value="3" @click="insert(0)">0</button></td>
+        <button id="erase" @click="back">
+        <i class="fa-solid fa-delete-left"></i>
+      </button>
+      </tr>
     </table>
+    <div class="important">
+      
+      
+    </div>
     
-    <button type="submit" id="call">
-      <i class="fa-solid fa-phone"></i>
-    </button>
+    
   </div>
 </template>
 <script>
 export default {
   name: 'AppelsView',
+  data() {
+    return {
+      newCaller: {
+        name: "",
+      },
+    }
+  },
+  computed: {
+    findContact() {
+      return this.$store.state.contact.find(perso => perso.phone === this.newCaller.name)
+    }
+  },
   methods: {
     insert(num){
-      document.phoneNumber.tel.value = document.phoneNumber.tel.value+num;
+      this.newCaller.name += num;
+    },
+    back(){
+      let name = this.newCaller.name
+      this.newCaller.name = name.substring(0,name.length-1)
+    },
+    newCall(){
+      if(this.findContact){
+        this.newCaller.name = this.findContact.name
+      }
+      this.$store.commit('missedCalls',this.newCaller)
+      this.num = ''
+      this.newCaller= {
+        name: '',
+      }
     }
   }
   
@@ -63,16 +106,19 @@ div{
   text-align: center;
   padding-top: 1rem;
 }
-form{
+
+.top-call{
   border-bottom: 1px solid gray;
+  
 }
+
 input{
+  width: 100%;
   padding: 1rem 2rem;
   background-color: transparent;
   border: none;
   outline: none;
   font-size: 2rem;
-  width: 100%;
   color: white;
 }
 span{
@@ -100,6 +146,5 @@ button:active{
   font-size: 1.5rem;
   background-color: #03C988;
 }
-
 
 </style>
