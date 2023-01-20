@@ -24,7 +24,7 @@ export default createStore({
   },
   mutations: {
     missedCalls(state, call){
-      state.calls.push(call);
+      state.calls.unshift(call);
     },
     newContact(state, perso){
       state.contact.push(perso);
