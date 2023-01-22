@@ -108,7 +108,7 @@ div{
 }
 
 .top-call{
-  border-bottom: 1px solid gray;
+  border-bottom: 1px solid #FFBF00;
   
 }
 

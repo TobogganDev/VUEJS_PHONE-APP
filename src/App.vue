@@ -2,7 +2,7 @@
   
   <div class="container">
     <p>{{ date.getHours() }}:{{  ('0'+date.getMinutes()).slice(-2) }}</p>
-
+    
     <router-view/>
     
     <nav>
@@ -34,7 +34,7 @@ export default {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #393E46;
+  background-color: #181818;
   color: white;
   width: 100%;
   height: 100vh;
@@ -63,22 +63,32 @@ a{
   display: flex;
   flex-direction: column;
   position: relative;
+  background: #181818;
+  box-shadow: 15px 15px #2C3333;
+  overflow: hidden;
 }
 
 .container nav{
   position: absolute;
-  bottom: 1rem;
+  bottom: 0;
+  padding: 1rem;
+  font-size: 1.5rem;
   left: 50%;
   transform: translateX(-50%);
   width: 100%;
-  background: #393E46;
+  background: #FFBF00;
   text-align: center;
   border-radius: 50px;
+  color: white;
 }
 
 .container p{
   text-align: center;
 }
+
+
+
+
 
 
 </style>

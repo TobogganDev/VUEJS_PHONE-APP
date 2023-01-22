@@ -1,7 +1,7 @@
 <template>
   <form @submit.prevent="newContact">
-    <input type="text" name="name" id="name" placeholder="Nom" v-model="formContact.name">
-    <input type="tel" name="tel" id="tel" placeholder="Numéro" v-model="formContact.phone">
+    <input type="text" name="name" id="name" required placeholder="Nom" v-model="formContact.name">
+    <input type="tel" name="tel" id="tel" required placeholder="Numéro" v-model="formContact.phone">
     <input type="submit" value="Ajouter" >
   </form>
 </template>
@@ -44,11 +44,13 @@ export default {
 <style scoped>
 form{
   text-align: center;
-  background-color: #03C988;
+  background-color: #181818;
+  border: 2px solid #FFBF00;
   padding-bottom: 1rem;
   border-radius: 10px;
   position: absolute;
   z-index: 500;
+  transition: all .6s ease;
 }
 input{
   padding: 8px 16px;

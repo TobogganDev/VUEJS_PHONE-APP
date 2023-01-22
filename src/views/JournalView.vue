@@ -29,7 +29,7 @@ export default {
     overflow: auto;
   }
   .top{
-    border-bottom: 1px solid gray;
+    border-bottom: 1px solid #FFBF00;
     padding-top: 15px;
   }
 </style>

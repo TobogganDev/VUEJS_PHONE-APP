@@ -24,13 +24,13 @@ div{
   justify-content: space-between;
   align-items: center;
   padding: 10px;
-  border-bottom: 1px solid gray;
+  border-bottom: 1px solid #FFBF00;
 }
 span{
   opacity: 0.3;
 }
 i{
   font-size: 1.3rem;
-  color: #03C988;
+  color: #FFBF00;
 }
 </style>
